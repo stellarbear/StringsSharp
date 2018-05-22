@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace StringsTest
@@ -10,8 +11,10 @@ namespace StringsTest
         static void Main(string[] args)
         {
             string Filename = "<filename>";
+
+            StringsSharp.CStringsSharp.GetVersion();
             Dictionary<string, int> AsciiResult = (new StringsSharp.CStringsSharp(
-                                               new StringsSharp.CEncoding("Ascii", 1251, "[\x20-\x7E]", 5, 64))).
+                                               new StringsSharp.CEncoding("Ascii", 1251, "[\x20-\x7E]", 5))).
                                                 Scan(Filename, 128);
             Dictionary<string, int> UnicodeResult = (new StringsSharp.CStringsSharp(
                                                new StringsSharp.CEncoding("Unicode", 1200, "[\u0020-\u007E]"))).

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace StringsSharp
@@ -13,6 +14,14 @@ namespace StringsSharp
     public class CStringsSharp : IDisposable
     {
         CEncoding Encoding;
+
+        /// <summary>
+        /// Get library version.
+        /// </summary>
+        public static Version GetVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version;
+        }
 
         /// <summary>
         /// Default ctor(). Sets string encoding which will be searched in files.
