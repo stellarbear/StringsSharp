@@ -33,4 +33,4 @@ Dictionary<string, List<string>> FilteredUnicode = (new StringsSharp.CFilter(Con
 ## Other
 Build in vs 2017
 
-Special thanks to (EricZimmerman)[https://github.com/EricZimmerman/bstrings].
+Special thanks to [EricZimmerman](https://github.com/EricZimmerman/bstrings).
