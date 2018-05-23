@@ -10,7 +10,7 @@ namespace StringsTest
     {
         static void Main(string[] args)
         {
-            string Filename = "<filename>";
+            string Filename = @"<filename>";
 
             StringsSharp.CStringsSharp.GetVersion();
             Dictionary<string, int> AsciiResult = (new StringsSharp.CStringsSharp(
@@ -20,7 +20,7 @@ namespace StringsTest
                                                new StringsSharp.CEncoding("Unicode", 1200, "[\u0020-\u007E]"))).
                                                 Scan(Filename, 128);
             
-            string Config = "<config.json>";
+            string Config = "Strings.json";
             Dictionary<string, List<string>> FilteredAscii = (new StringsSharp.CFilter(Config)).Scan(AsciiResult);
             Dictionary<string, List<string>> FilteredUnicode = (new StringsSharp.CFilter(Config)).Scan(UnicodeResult);
         }

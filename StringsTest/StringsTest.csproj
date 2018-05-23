@@ -70,8 +70,9 @@
     <Reference Include="AlphaFS">
       <HintPath>..\Build\Debug\AlphaFS.dll</HintPath>
     </Reference>
-    <Reference Include="StringsSharp">
-      <HintPath>..\Build\Debug\StringsSharp.dll</HintPath>
+    <Reference Include="StringsSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Debug\AnyCPU\StringsSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
