@@ -1,5 +1,5 @@
 {
-  "registry_hive": "([a-z0-9]\\)*(software\\)|(sam\\)|(system\\)|(security\\)[a-z0-9\\]+",
+  "registry_hive": "([a-z0-9]\\\\)*(software\\\\)|(sam\\\\)|(system\\\\)|(security\\\\)[a-z0-9\\\\]+",
   "registry_start": "DEFAULT\\\\Software\\\\Microsoft|HKEY_CURRENT_USER|HKEY_LOCAL_MACHINE|CurrentVersion\\\\Run|HKEY_CLASSES_ROOT|HKEY_CURRENT_USER|HKEY_LOCAL_MACHINE|HKEY_USERS|HKEY_PERFORMANCE_DATA|HKEY_CURRENT_CONFIG|HKEY_DYN_DATA|HKCR|HKCU|HKLM|HKPD|HKDD|HKCC|HKCU",
   "directory_var": "%ALLUSERPROFILE%|%APPDATA%|%CommonProgramFiles%|%HOMEPATH%|%LOCALAPPDATA%|%ProgramData%|%ProgramFiles%|%PUBLIC%|%SystemDrive%|%SystemRoot%|%TEMP%|%USERPROFILE%|%windows%|%windir%|%system%|%temp%|%user%|%programfiles%",
   "directory_win": "(?:\\\"\\\"?[a-zA-Z]\\:|\\\\\\\\[^\\\\\\/\\:\\*\\?\\<\\>\\|]+\\\\[^\\\\\\/\\:\\*\\?\\<\\>\\|]*)\\\\(?:[^\\\\\\/\\:\\*\\?\\<\\>\\|]+\\\\)*\\w([^\\\\\\/\\:\\*\\?\\<\\>\\|])*",
