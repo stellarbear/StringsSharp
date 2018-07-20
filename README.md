@@ -18,7 +18,7 @@ string filename = "<filename>";
 //  Unicode. Char range: [\u0020-\u007E]. Min string length: 4. Max string length: 16
 using (StringsSharp.StringsSharp ss = new StringsSharp.StringsSharp(1200, "[\u0020-\u007E]", 4, 16))
 {
-	//	Default chunk size is used
+    //	Default chunk size is used
     foreach (string extractedString in ss.Scan(filename))
     {
         //  Process string here
@@ -30,10 +30,10 @@ using (StringsSharp.StringsSharp ss = new StringsSharp.StringsSharp(1251, "[\x20
 {
     using (StringsSharp.StringFilter sf = new StringFilter(configurationFile))
     {
-		//	Chunk size is set to 256
+	//    Chunk size is set to 256
         foreach (string extractedString in ss.Scan(filename, 256))
         {
-			//	Result filtration in action
+	    //	Result filtration in action
             foreach (string filteredString in sf.Scan(extractedString))
             {
                 //  Process string here
