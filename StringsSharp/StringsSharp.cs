@@ -47,7 +47,7 @@ namespace StringsSharp
         {
             _encoding = Encoding.GetEncoding(codepage);
         }
-       
+
 
         public void Dispose()
         {
@@ -59,7 +59,7 @@ namespace StringsSharp
         /// <exception cref="FileNotFoundException">Thrown when file path is set incorrectly.</exception>
         /// <param name="filename">Filename to be scanned.</param>
         /// <param name="chunkSplitSizeInMb">Huge files will be split in chunks (>= 1, default == 256).</param>
-        public IEnumerable<string> Scan(string filename, int chunkSplitSizeInMb = 256)
+        public IEnumerable<MatchCollection> Scan(string filename, int chunkSplitSizeInMb = 256)
         {
             if (File.Exists(filename))
             {
@@ -71,7 +71,7 @@ namespace StringsSharp
             }
         }
 
-        private IEnumerable<string> ScanImplementation(string filename, int chunkSplitSizeInMb)
+        private IEnumerable<MatchCollection> ScanImplementation(string filename, int chunkSplitSizeInMb)
         {
             using (MemoryMappedFile mappedFile = MemoryMappedFile.CreateFromFile(
                         File.Open(filename, FileMode.Open, FileAccess.Read),
@@ -96,12 +96,9 @@ namespace StringsSharp
                     {
                         byte[] dataChunk = new byte[chunkSize];
                         mappedFileChunkStream.Read(dataChunk, 0, (int)chunkSize);
-
-                        foreach (Match scanMatch in _searchPattern.Matches(
-                            _encoding.GetString(dataChunk)))
-                        {
-                            yield return scanMatch.Value;
-                        }
+                        
+                        yield return _searchPattern.Matches(
+                            _encoding.GetString(dataChunk));
                     }
 
                     offset += chunkSize;

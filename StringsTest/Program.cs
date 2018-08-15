@@ -1,5 +1,6 @@
-﻿using System;
-using StringsSharp;
+﻿using StringsSharp;
+using System;
+using System.Text.RegularExpressions;
 
 namespace StringsTest
 {
@@ -15,9 +16,9 @@ namespace StringsTest
                 //  Unicode
                 using (StringsSharp.StringsSharp ss = new StringsSharp.StringsSharp(1200, "[\u0020-\u007E]", 4, 16))
                 {
-                    foreach (string extractedString in ss.Scan(filename))
+                    foreach (MatchCollection matches in ss.Scan(filename))
                     {
-                        //  Process string here
+                        //  Process matches here
                     }
                 }
 
@@ -26,11 +27,14 @@ namespace StringsTest
                 {
                     using (StringsSharp.StringFilter sf = new StringFilter(configurationFile))
                     {
-                        foreach (string extractedString in ss.Scan(filename, 256))
+                        foreach (MatchCollection matches in ss.Scan(filename, 256))
                         {
-                            foreach (string filteredString in sf.Scan(extractedString))
+                            foreach (Match match in matches)
                             {
-                                //  Process string here
+                                if (sf.Scan(match.Value))
+                                {
+                                    //  Process string here
+                                }
                             }
                         }
                     }

@@ -37,23 +37,22 @@ namespace StringsSharp
             _filters = null;
         }
 
-        public IEnumerable<string> Scan(string inputString)
+        public bool Scan(string inputString)
         {
             if (_filters != null)
             {
                 if (_filters.Count > 0)
                 {
-                    Dictionary<string, List<string>> result = new Dictionary<string, List<string>>();
-
                     foreach (KeyValuePair<string, Regex> filter in _filters)
                     {
                         if (filter.Value.IsMatch((inputString)))
                         {
-                            yield return filter.Key;
+                            return true;
                         }
                     }
                 }
             }
+            return false;
         }
 
         private string ReadFile(string filename)
