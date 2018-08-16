@@ -17,7 +17,8 @@ namespace StringsSharp
             {
                 try
                 {
-                    _filters = JsonConvert.DeserializeObject<Dictionary<string, string>>(ReadFile(configurationFile)).
+                    Dictionary<string, string> jsonData = JsonConvert.DeserializeObject<Dictionary<string, string>>(ReadFile(configurationFile));
+                    _filters = jsonData.
                         ToDictionary(k => k.Key, k => 
                             new Regex(k.Value, RegexOptions.Compiled | 
                                                RegexOptions.IgnoreCase | 
@@ -37,7 +38,24 @@ namespace StringsSharp
             _filters = null;
         }
 
-        public bool Scan(string inputString)
+        public IEnumerable<string> Scan(string inputString)
+        {
+            if (_filters != null)
+            {
+                if (_filters.Count > 0)
+                {
+                    foreach (KeyValuePair<string, Regex> filter in _filters)
+                    {
+                        if (filter.Value.IsMatch((inputString)))
+                        {
+                            yield return filter.Key;
+                        }
+                    }
+                }
+            }
+        }
+
+        public bool ScanQuick(string inputString)
         {
             if (_filters != null)
             {

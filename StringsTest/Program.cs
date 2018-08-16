@@ -31,7 +31,11 @@ namespace StringsTest
                         {
                             foreach (Match match in matches)
                             {
-                                if (sf.Scan(match.Value))
+                                if (sf.ScanQuick(match.Value))
+                                {
+                                    //  Process string here
+                                }
+                                foreach (string regexpTag in sf.Scan(match.Value))
                                 {
                                     //  Process string here
                                 }

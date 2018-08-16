@@ -40,6 +40,10 @@ using (StringsSharp.StringsSharp ss = new StringsSharp.StringsSharp(1251, "[\x20
                 {
                     //  Process string here
                 }
+                foreach (string regexpTag in sf.Scan(match.Value))
+                {
+                    //  Process tags here
+                }
 			}
 	    
         }
