@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>StringsSharp</id>
+    <version>1.0.3</version>
+    <title>StringsSharp</title>
+    <authors>stellarbears</authors>
+    <owners>stellarbears</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/stellarbear/StringsSharp</licenseUrl>
+    <projectUrl>https://github.com/stellarbear/StringsSharp</projectUrl>
+    <description>Extract strings from files</description>
+    <copyright>stellarbears</copyright>
+    <tags>strings extraction csharp net</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Release\**\StringsSharp.dll" target="build/net" />
+    <file src="Release\**\StringsSharp.props" target="build/net" />
+</files>
+</package>
